@@ -1,0 +1,22 @@
+logging.version = 1
+
+[logging.formatters.simple]
+format = '%(asctime)s - %(message)s'
+
+[logging.formatters.detailed]
+format = '%(asctime)s - %(levelname)s - %(name)s - %(funcName)s()@%(lineno)d - %(message)s'
+
+[logging.handlers.console]
+class = 'logging.StreamHandler'
+level = 'DEBUG'
+formatter = 'detailed'
+stream = 'ext://sys.stdout'
+
+[logging.loggers.logger]
+level = 'DEBUG'
+handlers = ['console']
+propagate = 'no'
+
+[logging.root]
+level = 'DEBUG'
+handlers = ['console']
