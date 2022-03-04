@@ -1,0 +1,26 @@
+[default.logging]
+version = 1
+
+[default.logging.formatters.precise]
+format = 'Template Logging App (default) - %(asctime)s - %(levelname)s - %(name)s - %(funcName)s()@%(lineno)d - %(message)s'
+
+[default.logging.handlers.console]
+class = 'logging.StreamHandler'
+level = 'DEBUG'
+formatter = 'precise'
+stream = 'ext://sys.stdout'
+
+[default.logging.root]
+level = 'DEBUG'
+handlers = ['console']
+
+
+
+[prd.logging]
+dynaconf_merge = true
+
+[prd.logging.formatters.precise]
+format = 'Template Logging App (prd) - %(asctime)s - %(levelname)s - %(name)s - %(funcName)s()@%(lineno)d - %(message)s'
+
+[prd.logging.handlers.console]
+level = 'INFO'
