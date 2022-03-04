@@ -2,8 +2,12 @@ from dynaconf import Dynaconf
 
 settings = Dynaconf(
     envvar_prefix='DYNACONF',
-    settings_files=[
+    settings_files=[  # order matters!
         'configs/logging.toml',
     ],
-    environments=['dev', 'tst', 'prd'],
+    environments=[  # use layered environments
+        'dev',
+        'tst',
+        'prd',
+    ],
 )
